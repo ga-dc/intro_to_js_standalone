@@ -1,0 +1,9 @@
+body{
+  width: 70%;
+  margin: auto;
+}
+
+header, footer {
+  text-align: center;
+  margin-right: 3em;
+}
