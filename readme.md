@@ -7,7 +7,7 @@
 
 ## Admin
 Please go to [http://deadsimplechat.com/](http://deadsimplechat.com/)
-That was we can share links and such through this temporary chat room.
+That way we can share links and such through this temporary chat room.
 
 ## Framing/Expectations
 The concept behind this class is to give you exposure to Javascript and the cool things you can potentially do. We will write JS code. We won't learn all things JS. We have a full time 12 week all day web development immersive. Javascript is about 60% of the course material. Our students learn A LOT of JS. Upon leaving the course they'll go on to their jobs in the industry and STILL learn more about JS. This is why developers love the industry they're in, because you'll never know it all! That all said, we'll learn some cool things today to give you a taste of the different things JS can do. Remember the point of today is strictly exposure and NOT to be a JS developer.(though get with me after class if you want to be one!)
