@@ -102,4 +102,216 @@ Fill the index.html with this content:
 </html>
 ```
 
-Fill in `styles.css`
+Fill in `styles.css` with this content:
+
+```css
+body{
+  width: 70%;
+  margin: auto;
+}
+
+header, footer {
+  text-align: center;
+  margin-right: 3em;
+}
+
+header {
+  padding-bottom: 2em;
+  margin-bottom: 3em;
+  border-bottom: 1px solid black;
+}
+
+footer{
+  margin-top: 3em;
+  padding-top: 2em;
+  border-top: 1px solid black;
+}
+```
+
+Then finally in `script.js`:
+
+```js
+console.log("hello world")
+var sentence = "this is a string!"
+var number = 5 + 5
+```
+
+We might not know what this code is doing at the moment. But for now, let's open the index.html file in chrome! You can use another browser, but the developer tools will be slightly different from the ones I'll be using.
+
+Next, let's open the developer tools by hitting `CMD` + `OPT` + `i`.
+
+If your not operating on OSX or chrome, you'll have to google how to open dev tools for your respective Operating system and internet browser. If on windows, its most likely `CTRL` + `SHIFT` + `i` for chrome.
+
+If we then click on console, we can see the words hello world.
+
+- The "Console" is a REPL
+  - “Read-Eval-Print Loop”.
+  - Programming environment that lets us run Javascript code one line at a time.
+  - What does it do?
+    1. (R)eads our code.
+    2. (E)valuates it.
+    3. (P)rints it to the console.
+    4. Then it (L)oops back to the beginning, ready to (R)ead the next line of code we feed it.
+
+> The chrome dev tools(if you're using chrome...)are a developers best friend. Here you can do a bunch of stuff like inspect elements and look at the html. More importantly for this class though, is it allows you to access the console which interacts with the JS you loaded to your page.
+
+The console is a wonderful sandbox where we can test out and play with JS code and see immediate results! If we look back at the code we wrote before:
+
+```js
+console.log("hello world")
+var sentence = "this is a string!"
+var number = 5 + 5
+```
+
+There are some things happening. Let's break it down.
+
+First:
+
+```js
+console.log("hello world")
+```
+
+This function `console.log()` allows us to show some text in our REPL.
+
+Next:
+
+```js
+var sentence = "this is a string!"
+var number = 5 + 5
+```
+
+In these two lines of code we're using variables and storing some values in them. Variables are basically buckets in programming with which we can store data.
+
+The first line, `var sentence = "this is a string!"` is storing a string in the variable `sentence`. If we type in sentence into our REPL, we'll see that string pop out! A string is just a sequence of characters delimited(started and ended) by quotation marks.
+
+The next line, `var number = 5 + 5`, is storing the evaluation of `5 + 5`(or 10) into the variable `number`. The thing that's being stored is known as the number data type.
+
+> Numbers and strings have different methods and get treated a bit differently in javascript. IE. there are things you can do with strings that you can't do with numbers and vice versa.
+
+## You do - Try some math operations in the JS console.
+Test this code:
+```js
+5 + 4 * (3 - 1)
+```
+
+What does this say about how JS does math operations? (ST - WG)
+
+## User Input (Prompt)
+There are many ways to get user input in JS. The easiest way(but probably least common) is to use the `prompt()` function.
+
+Try this out:
+
+```js
+var age = prompt("How old are you?")
+```
+
+Then type an age into the dialog box. Let's see what happens when we type in `age` and hit enter afterward!
+
+## jQuery
+
+> One thing to note, we'll be using the REPL for alot of this stuff, but know that anything we run in the REPL can be written in our script file and will execute on load of the page!
+
+Great, now that we know the basics, let's do some much cooler things! In order to do these things, let's use the jQuery library. Put this code above the existing script tag in your HTML, that part of your HTML should look something like this:
+
+```html
+<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+<script src="script.js"></script>
+```
+
+> This loads the jQuery library before our script files. Note: All the things we're about to do with jQuery can be done in just plain 'ol JS, but jQuery makes it a bit easier. jQuery's motto is "write less, do more"
+
+The idea of jQuery is very simple. Select something and then do something to it. There are many parallels with CSS and jQuery. We don't know HTML and CSS very well but we do see these `tags` in html. One example is the `<body></body>` tag. So in order to select things in jQuery it will look something like this:
+
+```js
+$("body")
+```
+
+This would select the body tags. We only have 1 so it will only select 1. If we did something like this:
+
+```js
+$("h1")
+```
+
+This would select all the `h1` tags.
+
+> ST-WG how would i go about selected the `<h3>` tags?
+
+You'll notice that we have 3 `<h3>` tags. How would we only select 1 of them?
+
+Because these tags have classes we can select them individually by doing this:
+
+```js
+$("h3.header1")
+```
+
+So if we type this into the console. Something happens in the console but it doesn't DO anything in the actual browser. Let's actually do stuff.
+
+## A quick aside about functions!
+In javascript, there's these things called functions. We can call them on things, call them on their own. Some take arguments, others don't. There are lots and lots of rules about functions and honestly we could probably talk about functions for an entire month and still not be able to cover everything. The TLDR version of functions for this class, is that we can call them on things and sometimes we need to give them information. Like this function we're about to be introduced to!
+
+## Changing Text(using `.html()` function)
+
+Well, I guess that's cool, but how do we do stuff to it? Check this out:
+
+```js
+$("body").html("WHOA! You can do that!?!??!")
+```
+
+You sure can.
+
+> This particular function requires 1 argument. The text that you want to be changed to, as a string
+
+## You do - Change just a header's HTML
+Leveraging what we just learned, Use JS/JQ to change the text of the `h2` in our html
+
+## Changing CSS
+
+I guess that kind of cool, but is there moar?! You betcha. Turns out, we can even change the CSS using JS/JQ.
+
+```js
+$("h1").css("color", "lemonchiffon")
+```
+
+AWWESSOMME!!
+
+> This function takes 2 arguments. The first argument is the property you'd like to change. The second is the value you'd like it to be. Both strings!
+
+
+> some of you may know CSS. In CSS there are lots of properties and corresponding values. In the case of the function above, the first argument ("color") is the property and the second argument("lemonchiffon") is the corresponding value
+
+## You do - Change the css of a different element.
+
+Select the `<p>` tag in the HTML and add or change a css property to it.
+
+Here's a [list of CSS properties](http://www.blooberry.com/indexdot/css/propindex/all.htm)
+
+## Events
+This parts a bit tricky but bear with it, it's really cool! Event listeners are a way for us to add behaviors to a web application that makes it interactive. Let's see the basic syntax of one:
+
+```js
+$("h1").on("click", function(){
+  console.log("this button got clicked!")
+})
+```
+
+> We selected an element, in this case a `button`. Then we write this word `.on`(a function). Then some parentheses. The first thing we put in is the thing we want the `button` to listen for. In this case, a `click`. Then in the function block after we want to describe what we want to happen.
+
+You'll notice that when I click the button, we see those words pop into our REPL.
+
+(ST-WG) Are we limited to the types of code we can write in this block of code? IE. can i do other jQuery things in this block of code?
+
+YES
+
+```js
+$("h1").on("click", function(){
+  $("body").css("background", "blue")
+})
+```
+
+Cool. This is great, but we barely scratched the surface of the true power of JS and jQuery. I hope you liked this taste!
+
+If you're hungry for more check out these resources:
+
+- [MDN JS Basics Tutorial](https://developer.mozilla.org/en-US/Learn/Getting_started_with_the_web/JavaScript_basics)
+- [Tuts Point jQuery Tutorial](http://www.tutorialspoint.com/jquery/)
+- [jQuery Documentation](https://api.jquery.com/)
