@@ -98,6 +98,7 @@ Fill the index.html with this content:
     <h3 class="header3">Here's a nice link to google.</h3>
     <a href="https://www.google.com"><img src="https://images.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"/></a>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
 ```
